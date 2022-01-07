@@ -1,11 +1,11 @@
 const main = async () => {
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  const Transactions = await hre.ethers.getContractFactory("Transactions");
+  const transactions = await Transactions.deploy();
 
-  await greeter.deployed();
+  await transactions.deployed();
 
-  console.log("Greeter deployed to:", greeter.address);
+  console.log("Transactions deployed to:", transactions.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
@@ -13,10 +13,10 @@ const main = async () => {
 const runMain = async ()=>{
   try {
     await main();
-    process.exitCode(0)
+    process.exit(0)
   } catch (error) {
     console.error(error);
-    process.exitCode(1);
+    process.exit(1);
   }
 }
 
