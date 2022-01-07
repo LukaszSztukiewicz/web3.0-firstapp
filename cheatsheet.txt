@@ -50,3 +50,5 @@ waffle
 
 
 npx hardhat run scripts/deploy.js --network ropsten
+
+const APIKEY = import.meta.env.VITE_GIPHY_API;
