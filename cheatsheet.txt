@@ -3,6 +3,8 @@ npm init vite
 npm install
 npm run dev
 
+npm install react-icons ethers
+
 https://tailwindcss.com/docs/guides/create-react-app
 
 npm install -D tailwindcss postcss autoprefixer
@@ -33,3 +35,5 @@ npm init -y
 code:
 press alt to write in different places
 ctr+f2 to change all occurrences
+ctrl cilck to peek definition
+--
