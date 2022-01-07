@@ -1,0 +1,35 @@
+//node+nvm, vite, React, tailwindcss
+npm init vite
+npm install
+npm run dev
+
+https://tailwindcss.com/docs/guides/create-react-app
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+overvrite tailwindcss.config.js
+"
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+"
+
+overvrite the @tailwind directives for each of Tailwind’s layers to your main CSS file.
+
+index.css
+"
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+"
+------------------
+npm init -y
+-----
+code:
+press alt to write in different places
+ctr+f2 to change all occurrences
