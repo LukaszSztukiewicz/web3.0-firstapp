@@ -10,20 +10,14 @@ const createEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const signer = provider.getSigner();
     const transtactionContract = new ethers.Contract(contractAddress, contractABI, signer);
-
-    console.log(
-        {
-            provider,
-            signer,
-            transtactionContract
-        }
-    );
     return transtactionContract;
 }
 
 export const TransactionProvider = ({ children }) => {
     const [currentAccount, setCurrentAccount] = useState("");
     const [formData, setFormData] = useState({addressTo:"", amount:"", keyword:"", message:""});
+    const [isLoading, setIsLoading] = useState(false);
+    const [transactionCount, setTransactionCount] = useState(localStorage.getItem("transactionCount"));
 
     const handleChange = (e, name ) => {
         setFormData((prevState)=>({...prevState, [name]:e.target.value}));
@@ -60,7 +54,7 @@ export const TransactionProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
 
-      throw new Error("No ethereum object");
+      throw new Error("No ethereum object connectWallet");
     }
   };
 
@@ -75,7 +69,8 @@ export const TransactionProvider = ({ children }) => {
           if (ethereum) {
             const { addressTo, amount, keyword, message } = formData;
             const transactionsContract = createEthereumContract();
-            /*const parsedAmount = ethers.utils.parseEther(amount);
+            const parsedAmount = ethers.utils.parseEther(amount);
+            
     
             await ethereum.request({
               method: "eth_sendTransaction",
@@ -97,14 +92,14 @@ export const TransactionProvider = ({ children }) => {
     
             const transactionsCount = await transactionsContract.getTransactionCount();
     
-            setTransactionCount(transactionsCount.toNumber());*/
+            setTransactionCount(transactionsCount.toNumber());
           } else {
-            console.log("No ethereum object");
+            console.log("No ethereum object sendin");
           }
         } catch (error) {
           console.log(error);
     
-          throw new Error("No ethereum object");
+          throw new Error("No ethereum object sendouteer");
         }
       };
 
